@@ -1,0 +1,16 @@
+{
+  "name": "spreadsheetclone",
+  "version": "1.0.0",
+  "description": "This web app mimics Google Sheets with:  \r ✅ **Spreadsheet UI** (Light/Dark Mode, Column/Row Headers)  \r ✅ **Mathematical & Text Functions**  \r ✅ **Formula Parsing (`=A1+B1`, `=SUM(A1:A5)`)**  \r ✅ **Multi-Sheet Support**  \r ✅ **Real-Time Collaboration (WebSockets)**  \r ✅ **CSV/JSON Import & Export**  \r ✅ **Print & PDF Export**  \r ✅ **Google Sign-In & Firebase Storage**",
+  "main": "firebase-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.18.1"
+  }
+}

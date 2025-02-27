@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script defer src="firebase-config.js"></script>
+</head>
+<body>
+    <div class="toolbar">
+        <button onclick="toggleTheme()">🌗 Toggle Mode</button>
+        <button onclick="exportCSV()">Export CSV</button>
+        <button onclick="importCSV()">Import CSV</button>
+        <button onclick="printSpreadsheet()">🖨️ Print</button>
+        <button onclick="exportPDF()">📄 Export PDF</button>
+        <button onclick="signInWithGoogle()">🔑 Sign In</button>
+    </div>
+
+    <div class="formula-bar">
+        <input type="text" id="formulaInput" placeholder="Enter formula...">
+    </div>
+
+    <div class="spreadsheet-container">
+        <div class="row-header"></div>
+        <div class="spreadsheet" id="spreadsheet"></div>
+    </div>
+
+    <div class="sheet-tabs">
+        <button onclick="addSheet()">➕ Add Sheet</button>
+        <div id="sheets"></div>
+    </div>
+
+    <input type="file" id="fileInput" style="display:none" onchange="handleFileUpload(event)">
+</body>
+</html>

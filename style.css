@@ -1,0 +1,70 @@
+:root {
+    --bg-light: #f9f9f9;
+    --text-light: #333;
+    --border-light: #ddd;
+    
+    --bg-dark: #222;
+    --text-dark: #f1f1f1;
+    --border-dark: #444;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: all 0.3s ease-in-out;
+}
+
+.toolbar {
+    background: var(--border-light);
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.spreadsheet {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(20, 40px);
+    border: 1px solid var(--border-light);
+}
+
+.cell {
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.selected {
+    background:green;
+}
+.column-header {
+    display: flex;
+}
+
+.column {
+    position: relative;
+    width: 100px;
+    text-align: center;
+    border: 1px solid var(--border-light);
+}
+
+.resizer {
+    width: 5px;
+    height: 100%;
+    background: #aaa;
+    cursor: ew-resize;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
