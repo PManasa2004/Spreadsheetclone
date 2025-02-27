@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Sheets Clone</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+
+    <!-- Firebase SDK (Ensure correct version) -->
+    <script defer src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+    
+    <!-- Firebase and Custom Scripts -->
     <script defer src="firebase-config.js"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
+
+    <!-- Toolbar with Buttons -->
     <div class="toolbar">
         <button onclick="toggleTheme()">🌗 Toggle Mode</button>
         <button onclick="exportCSV()">Export CSV</button>
@@ -18,20 +26,42 @@
         <button onclick="signInWithGoogle()">🔑 Sign In</button>
     </div>
 
+    <!-- Formula Input Bar -->
     <div class="formula-bar">
         <input type="text" id="formulaInput" placeholder="Enter formula...">
     </div>
 
+    <!-- Spreadsheet Container -->
     <div class="spreadsheet-container">
-        <div class="row-header"></div>
+        <div class="row-header" id="rowHeader"></div>
         <div class="spreadsheet" id="spreadsheet"></div>
     </div>
 
+    <!-- Sheet Tabs Section -->
     <div class="sheet-tabs">
         <button onclick="addSheet()">➕ Add Sheet</button>
         <div id="sheets"></div>
     </div>
 
+    <!-- File Upload Input -->
     <input type="file" id="fileInput" style="display:none" onchange="handleFileUpload(event)">
+
+    <!-- Prevent function errors if missing in script.js -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Ensure necessary functions are available before calling them
+            if (typeof generateHeaders === "function") generateHeaders();
+            if (typeof initSpreadsheet === "function") initSpreadsheet();
+        });
+
+        // Placeholder functions for missing functionality
+        function exportCSV() { console.log("Exporting CSV..."); }
+        function importCSV() { console.log("Importing CSV..."); }
+        function exportPDF() { console.log("Exporting PDF..."); }
+        function printSpreadsheet() { console.log("Printing..."); }
+        function addSheet() { console.log("Adding Sheet..."); }
+        function signInWithGoogle() { console.log("Signing in..."); }
+    </script>
+
 </body>
 </html>

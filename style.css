@@ -13,6 +13,8 @@ body {
     background-color: var(--bg-light);
     color: var(--text-light);
     transition: all 0.3s ease-in-out;
+    margin: 0;
+    padding: 0;
 }
 
 .toolbar {
@@ -20,13 +22,22 @@ body {
     padding: 10px;
     display: flex;
     gap: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.spreadsheet-container {
+    padding: 20px;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 .spreadsheet {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(20, 40px);
+    grid-template-columns: repeat(10, 1fr); /* Adjust the number of columns */
+    grid-template-rows: repeat(20, 40px);  /* Adjust the number of rows */
     border: 1px solid var(--border-light);
+    overflow: auto;
 }
 
 .cell {
@@ -37,16 +48,19 @@ body {
     min-width: 80px;
     height: 40px;
     cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
 }
 
-.dark-mode {
-    background-color: var(--bg-dark);
-    color: var(--text-dark);
+.cell:hover {
+    background-color: #f0f0f0;
 }
 
 .selected {
-    background:green;
+    background-color: #4CAF50; /* Green to highlight selected cells */
+    color: white;
 }
+
 .column-header {
     display: flex;
 }
@@ -68,3 +82,78 @@ body {
     top: 0;
 }
 
+.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+input[type="text"], .formula-bar input {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.toolbar button {
+    margin-right: 10px;
+}
+
+.dark-mode button {
+    background-color: #333;
+    color: #f1f1f1;
+}
+
+.dark-mode button:hover {
+    background-color: #555;
+}
+/* Column and row header styling */
+.row-header {
+    display: grid;
+    grid-template-columns: 40px repeat(10, 1fr); /* 40px for row number column, then 1fr for each column */
+    grid-template-rows: 40px;
+}
+
+.column-header {
+    display: grid;
+    grid-template-columns: 40px repeat(10, 1fr); /* 40px for row number column, then 1fr for each column */
+    grid-template-rows: 40px;
+}
+
+.cell, .column, .row-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    height: 40px;
+    border: 1px solid var(--border-light);
+}
+
+/* Add some spacing for the row numbers and column headers */
+.row-number {
+    background-color: white;
+    font-weight: bold;
+}
+
+.column {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    color: #222;
+}
